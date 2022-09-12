@@ -16,7 +16,7 @@ export class App extends Component {
   state = {
     page: 1,
     input: '',
-    data: null,
+    data: [],
     loading: false,
   };
 
@@ -24,17 +24,7 @@ export class App extends Component {
     const { input, page } = this.state;
     const { ADDRESS, KEY } = params;
 
-    if (prevState.input !== input) {
-      this.setState({ page: 1, loading: true });
-
-      FetchImages(ADDRESS, KEY, page, input)
-        .then(imgArr => this.setState({ data: imgArr.hits }))
-        .catch(error => console.log(error))
-        .finally(this.setState({ loading: false }));
-      return;
-    }
-
-    if (page !== prevState.page) {
+    if (prevState.input !== input || page !== prevState.page) {
       this.setState({ loading: true });
 
       FetchImages(ADDRESS, KEY, page, input)
