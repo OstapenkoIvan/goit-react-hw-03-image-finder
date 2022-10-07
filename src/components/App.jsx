@@ -5,12 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from './Button/Button';
 import { ThreeCircles } from 'react-loader-spinner';
-import FetchImages from './GalleryApi/GalleryApi';
-
-const params = {
-  ADDRESS: 'https://pixabay.com/api/',
-  KEY: '29510729-da386a69ed783c050b927561b',
-};
+import FetchImages from '../api/GalleryApi';
 
 export class App extends Component {
   state = {
@@ -22,19 +17,20 @@ export class App extends Component {
 
   componentDidUpdate(_, prevState) {
     const { input, page } = this.state;
-    const { ADDRESS, KEY } = params;
 
     if (prevState.input !== input || page !== prevState.page) {
       this.setState({ loading: true });
 
-      FetchImages(ADDRESS, KEY, page, input)
-        .then(imgArr =>
-          this.setState(prevState => {
-            return {
-              data: [...prevState.data, ...imgArr.hits],
-            };
-          })
-        )
+      FetchImages(page, input)
+        .then(imgArr => {
+          if (input !== prevState.input) this.setState({ data: imgArr.hits });
+          else
+            this.setState(prevState => {
+              return {
+                data: [...prevState.data, ...imgArr.hits],
+              };
+            });
+        })
         .catch(error => console.log(error))
         .finally(this.setState({ loading: false }));
       return;

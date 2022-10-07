@@ -27,8 +27,8 @@ img {
 }
 
 /*
- * Стили компонента App
- */
+   * Стили компонента App
+   */
 .App {
   display: grid;
   grid-template-columns: 1fr;
@@ -37,8 +37,8 @@ img {
 }
 
 /*
- * Стили компонента form
- */
+   * Стили компонента form
+   */
 .header {
   top: 0;
   left: 0;
@@ -59,8 +59,8 @@ img {
 }
 
 /*
- * Стили компонента SearchForm
- */
+   * Стили компонента SearchForm
+   */
 .SearchForm {
   display: flex;
   align-items: center;
@@ -119,8 +119,8 @@ img {
 }
 
 /*
- * Стили компонента ImageGallery
- */
+   * Стили компонента ImageGallery
+   */
 .ImageGallery {
   display: grid;
   max-width: calc(100vw - 48px);
@@ -135,8 +135,8 @@ img {
 }
 
 /*
- * Стили компонента ImageGalleryItem
- */
+   * Стили компонента ImageGalleryItem
+   */
 .ImageGalleryItem {
   border-radius: 2px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
@@ -156,8 +156,8 @@ img {
 }
 
 /*
- * Стили компонента Modal
- */
+   * Стили компонента Modal
+   */
 
 .Overlay {
   position: fixed;
@@ -178,8 +178,8 @@ img {
 }
 
 /*
-* Стили компонента Buton (Load more)
-*/
+  * Стили компонента Button (Load more)
+  */
 .Button {
   margin: 16px auto;
   padding: 8px 16px;
